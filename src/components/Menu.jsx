@@ -61,7 +61,8 @@ const Title = styled.h2`
   color: #aaaaaa;
   margin-bottom: 20px;
 `;
-const Menu = ({ changeMode }) => {
+
+const Menu = ({ changeMode, darkMode }) => {
   return (
     <Container>
       <Wrapper>
@@ -143,7 +144,7 @@ const Menu = ({ changeMode }) => {
         </Items>
         <Items onClick={changeMode}>
           <SettingsBrightnessIcon />
-          Light Mode
+          {darkMode ? "Light Mode" : "Dark Mode"}
         </Items>
       </Wrapper>
     </Container>

@@ -32,7 +32,10 @@ const Search = styled.div`
 `;
 const Input = styled.input`
   border: none;
+  outline: none;
   background: transparent;
+  width: 100%;
+  cursor: pointer;
 `;
 const Navbar = () => {
   return (
