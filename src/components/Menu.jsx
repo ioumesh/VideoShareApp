@@ -16,13 +16,18 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import FlagIcon from "@mui/icons-material/Flag";
 import HelpIcon from "@mui/icons-material/Help";
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
+import { AccountCircleOutlined } from "@mui/icons-material";
+import { Button } from "../utils/Button";
 
 const Container = styled.div`
   flex: 1;
-  background-color: #202020;
-  color: #fff;
+  background-color: ${({ theme }) => theme.bgLighter};
+  color: ${({ theme }) => theme.text};
   height: 100vh;
   font-size: 14px;
+  overflow-x: hidden;
+  position: sticky;
+  top: 0;
 `;
 const Wrapper = styled.div`
   padding: 18px 26px;
@@ -42,8 +47,21 @@ const Items = styled.div`
   align-items: center;
   gap: 20px;
   cursor: pointer;
+  padding: 7.5px 0;
 `;
-const Menu = () => {
+const Hr = styled.hr`
+  margin: 15px 0px;
+  border: 0.5px solid ${({ theme }) => theme.soft}; ;
+`;
+const Login = styled.div``;
+
+const Title = styled.h2`
+  font-size: 14px;
+  font-weight: 500;
+  color: #aaaaaa;
+  margin-bottom: 20px;
+`;
+const Menu = ({ changeMode }) => {
   return (
     <Container>
       <Wrapper>
@@ -63,6 +81,7 @@ const Menu = () => {
           <SubscriptionsIcon />
           Subscription
         </Items>
+        <Hr />
         <Items>
           <VideoLibraryIcon />
           Library
@@ -71,6 +90,16 @@ const Menu = () => {
           <HistoryIcon />
           History
         </Items>
+        <Hr />
+        <Login>
+          Sign in to Like videos, comment and subscribe
+          <Button>
+            <AccountCircleOutlined />
+            SIGN IN
+          </Button>
+        </Login>
+        <Hr />
+        <Title>Best of Youtube</Title>
         <Items>
           <LibraryMusicIcon />
           Music
@@ -99,6 +128,7 @@ const Menu = () => {
           <LiveTvIcon />
           Live
         </Items>
+        <Hr />
         <Items>
           <SettingsIcon />
           Setting
@@ -111,7 +141,7 @@ const Menu = () => {
           <HelpIcon />
           Help
         </Items>
-        <Items>
+        <Items onClick={changeMode}>
           <SettingsBrightnessIcon />
           Light Mode
         </Items>
